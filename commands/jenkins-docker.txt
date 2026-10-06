@@ -17,3 +17,8 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 # Acceso local:
 # http://127.0.0.1:8081
 
+# Detener Jenkins sin eliminar el contenedor ni el volumen.
+docker stop jenkins
+
+# Volver a iniciar el mismo contenedor conservando la información.
+docker start jenkins

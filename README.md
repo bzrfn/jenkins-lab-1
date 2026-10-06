@@ -25,6 +25,22 @@ Crear un entorno Jenkins persistente, completar la configuración inicial y comp
 
 Los comandos reproducibles se encuentran en `commands/jenkins-docker.txt` y el script del ejemplo en `scripts/hello-world.sh`.
 
+## Job implementado
+
+- Nombre: `pipe-hola-mundo`
+- Tipo: Freestyle project
+- Descripción: `Hola mundo`
+- Retención: 3 días y máximo 5 ejecuciones
+- SCM: ninguno
+- Comando: `echo "Hola mundo"`
+- Resultado validado: Build `#1` con estado `SUCCESS`
+
+La configuración exportada del Job se encuentra en `jobs/pipe-hola-mundo/config.xml`.
+
+## Detener y reanudar Jenkins
+
+Para detener Jenkins sin borrar su información se usa `docker stop jenkins`. Para volver a iniciarlo se usa `docker start jenkins`. El volumen `jenkins_home` conserva la configuración y los Jobs.
+
 ## Seguridad
 
 Este repositorio no contiene contraseñas, tokens, credenciales ni el directorio interno de Jenkins.
