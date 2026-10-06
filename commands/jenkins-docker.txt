@@ -1,0 +1,19 @@
+# Crear el volumen persistente utilizado por Jenkins.
+docker volume create jenkins_home
+
+# Ejecutar Jenkins LTS con JDK 21 en el puerto local 8081.
+docker run -d --name jenkins --restart unless-stopped -p 127.0.0.1:8081:8080 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk21
+
+# Verificar el estado del contenedor.
+docker ps --filter name=jenkins
+
+# Consultar los logs de inicio sin mostrar credenciales.
+docker logs --tail 100 jenkins
+
+# La contraseña inicial se consulta únicamente durante la configuración.
+# No debe copiarse a archivos, commits, capturas ni documentación.
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+
+# Acceso local:
+# http://127.0.0.1:8081
+
