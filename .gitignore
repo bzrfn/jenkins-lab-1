@@ -1,0 +1,11 @@
+# Archivos locales de Jenkins y Docker
+jenkins_home/
+secrets/
+*.log
+
+# Archivos temporales del sistema y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
